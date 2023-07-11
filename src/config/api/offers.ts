@@ -1,10 +1,14 @@
 import { apiCallGET } from './controller';
 
-export const apiOffers = async () => {
+export const apiOffersList = async () => {
   return await apiCallGET('/offers/public/');
 };
 
-export const apiBusinessId = async (id: number = 0) => {
+export const apiOffersListPagination = async (page: number = 0) => {
+  return await apiCallGET(`/offers/public/?page=${page}`);
+};
+
+export const apiOffersId = async (id: number = 0) => {
   return await apiCallGET(`/offers/public/${id}/`);
   // Params: business, status, enabled 
 };

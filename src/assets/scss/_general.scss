@@ -41,3 +41,33 @@ a {
   border-bottom: 1px solid #e3e3e3;
   margin: 1em;
 }
+
+.title-page {
+  width: 100%;
+  padding: 1em;
+  margin: 1em 0 0 0;
+  text-align: left;
+
+  &__results {
+    font-size: 0.8rem;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background: #73dee4;
+  color: #000000;
+  transition: all ease 0.3s;
+
+  &__large {
+    padding: 0.5em 1em;
+  }
+
+  &:hover {
+    background: #53a7ac;
+  }
+}

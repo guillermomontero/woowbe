@@ -14,11 +14,18 @@ export const useAuthStore = defineStore('auth', {
   },
 
   actions: {
+    userLogged(token: string = '') {
+      this.logged = true;
+      this.token = token;
+      router.push('/');
+    },
+
     async login(payload: Object = {}) {
       try {
         const response = await apiAuth(payload);
         this.logged = true;
         this.token = response.token;
+        localStorage.setItem('token', response.token);
         router.push('/');
       } catch (error) {
         console.log(error);
@@ -29,6 +36,7 @@ export const useAuthStore = defineStore('auth', {
       this.logged = false;
       this.token = '';
       this.name = '';
+      localStorage.removeItem('token');
       router.push('/login');
     }
   }

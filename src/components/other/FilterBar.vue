@@ -4,7 +4,6 @@ import { onMounted, ref, nextTick } from 'vue';
 const emit = defineEmits<{
   (e: 'businessSelectedChange', id: number): void
   (e: 'categorySelectedChange', id: number): void
-
 }>();
 
 const props = defineProps({

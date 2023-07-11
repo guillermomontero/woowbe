@@ -1,0 +1,141 @@
+.business-card {
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 1em;
+
+  &__img {
+    width:20%;
+    margin: 0 1em 0 0;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__name {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+
+    &--category {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      
+      img {
+        width: 20px;
+        height: auto;
+        margin: 0 0.5em 0 0;
+      }
+  
+      p {
+        font-size: 0.8rem;
+        margin: 0.3em 0 0 0;
+      }
+    }
+  }
+
+  &__description {
+    width: 100%;
+    height: 100px;
+  }
+
+  
+  &__button {
+    cursor: pointer;
+    appearance: none;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: #73dee4;
+    color: #000000;
+    padding: 0.5em 1em;
+    width: 100%;
+    transition: all ease 0.3s;
+
+    &:hover {
+      background: #53a7ac;
+    }
+  }
+}
+
+.business-item {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+
+  &__image {
+    width: 100%;
+    
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__sector {
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    &--icon {
+      img {
+        width: 30px;
+      }
+    }
+
+    &--name {
+      margin: 0 2em 0 0;
+    }
+
+    &--web {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        fill: #73dee4;
+      }
+
+      a {
+        margin: 0 0 0 0.6em;
+        cursor: pointer;
+        color: #73dee4;
+        display: block;
+        transition: all ease 0.3s;
+  
+        &:hover {
+          color: #53a7ac;
+        }
+      }
+    }
+  }
+
+  &__labels {
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-flow: row wrap;
+
+    &--label {
+      padding: 0 12px;
+      border-radius: 12px;
+      background: #ffdc42;
+      font-size: 0.8rem;
+      margin: 0 1em 0 0;
+    }
+  }
+
+  &__description {
+    width: 100%;
+    padding: 1em;
+    margin: 0 0 1em 0;
+  }
+}

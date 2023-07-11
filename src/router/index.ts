@@ -22,9 +22,40 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/LoginView.vue')
   },
   {
+    path: '/profile',
+    name: 'profile',
+    component: () => import('../views/ProfileView.vue'),
+    beforeEnter: requireAuth,
+  },
+  {
     path: '/business/:id',
-    name: 'business',
-    component: () => import('../views/BusinessView.vue')
+    name: 'business-id',
+    component: () => import('../views/BusinessIDView.vue'),
+    beforeEnter: requireAuth,
+  },
+  {
+    path: '/offers',
+    name: 'offers',
+    component: () => import('../views/OffersView.vue'),
+    beforeEnter: requireAuth,
+  },
+  {
+    path: '/offers/:id',
+    name: 'offers-id',
+    component: () => import('../views/OffersIDView.vue'),
+    beforeEnter: requireAuth,
+  },
+  {
+    path: '/points-of-sales',
+    name: 'points-of-sales',
+    component: () => import('../views/PointsOfSalesView.vue'),
+    beforeEnter: requireAuth,
+  },
+  {
+    path: '/points-of-sales/:id',
+    name: 'points-of-sales-id',
+    component: () => import('../views/PointsOfSalesIDView.vue'),
+    beforeEnter: requireAuth,
   }
 ];
 

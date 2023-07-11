@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref, onMounted, computed } from 'vue';
 import { apiBusinessList,apiBusinessListPagination } from '../config/api/business';
-import FilterBar from '../components/business/FilterBar.vue';
+import FilterBar from '../components/other/FilterBar.vue';
 import BusinessCardComponent from '../components/business/BusinessCardComponent.vue';
 
 const dataBusiness = ref<Object>({});
@@ -42,6 +42,9 @@ const filterByCategories = (id: number = 0) => {
 <template>
   <main class="main">
     <FilterBar v-if="businessList && businessList.length" :item="dataBusiness" @businessSelectedChange="filterByBusiness" @categorySelectedChange="filterByCategories"/>
+    <div class="title-page">
+      <h1>Negocios <span class="title-page__results">({{ dataBusiness.count }} resultados)</span></h1>
+    </div>
     <section class="home">
       <template v-for="(item, index) in businessList" :key="`${index}_${item.id}`">
         <BusinessCardComponent :item="item" />
