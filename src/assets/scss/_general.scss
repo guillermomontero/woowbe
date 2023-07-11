@@ -20,7 +20,7 @@ body {
   width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-flow: column-wrap;
+  flex-flow: column wrap;
   align-items: center;
   justify-content: center;
 }
@@ -32,4 +32,12 @@ input, button {
 
 a {
   text-decoration: none;
+}
+
+
+
+//
+.divider {
+  border-bottom: 1px solid #e3e3e3;
+  margin: 1em;
 }

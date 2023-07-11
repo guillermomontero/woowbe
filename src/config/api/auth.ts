@@ -1,5 +1,5 @@
-import { apiCallPOST } from './index';
+import { apiCallPOST } from './controller';
 
-export const apiAuth = (payload: Object = {}) => {
-  apiCallPOST('/auth/jwt/token/', payload);
-}
+export const apiAuth = async (payload: Object = {}) => {
+  return await apiCallPOST('/auth/jwt/token/', payload);
+};

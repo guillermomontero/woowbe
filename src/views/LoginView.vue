@@ -1,22 +1,61 @@
 <script lang="ts" setup>
-  import { ref } from 'vue';
+  import { ref, watch } from 'vue';
   import { useAuthStore } from '../stores/auth';
 
   const store = useAuthStore();
 
-  const user = ref({
+  interface User {
+    email: string,
+    password: string
+  }
+
+  const user = ref<User>({
     email: '',
-    password: null
+    password: ''
   });
 
-  const login = () => {
+  const loginMessage = ref<string>('');
+
+  watch(loginMessage, (newQuestion) => {
+    if (newQuestion) {
+      setTimeout(() => {
+        loginMessage.value = '';
+      }, 3000);
+    }
+  });
+
+  const login = async () => {
+    if (!validateForm()) return;
+
     const payload = {
       email: user.value.email,
-      pswd: user.value.password
+      password: user.value.password
     };
 
-    store.login(payload)
+    await store.login(payload);
   };
+
+  // Validate form
+  const validateForm = () => {
+    if (!user.value.email || !user.value.password) {
+      loginMessage.value = 'Los datos introducidos son incorrectos';
+      return false;
+    }
+
+    if (!hasEmailFormat(user.value.email)) {
+      loginMessage.value = 'El email introducido no es correcto';
+      return false;
+    }
+
+    return true;
+  };
+
+  const hasEmailFormat = (searchString: string = '') => {
+    const emailRegExp = { email: /^\w.+@\w+\.[a-z]+$/i };
+
+    return emailRegExp.email.test(searchString);
+  };
+
 </script>
 
 <template>
@@ -29,11 +68,14 @@
         <input type="email" placeholder="Email" name="email" id="form-email" v-model="user.email" class="login__form--input">
         <input type="password" placeholder="Password" name="password" id="form-password" v-model="user.password" class="login__form--input">
 
-        <button type="submit" class="login__form--button">Log in</button>
+        <button type="submit" class="login__form--button">Entrar</button>
+        <div v-if="loginMessage" class="login__message">
+          {{ loginMessage }}
+        </div>
       </form>
       <div class="login__links">
-        <a href="#">Forgotten password?</a>
-        <a href="#">Create new account</a>
+        <a href="#">Olvide mi contraseña</a>
+        <a href="#">Registrarme</a>
       </div>
     </section>
   </main>

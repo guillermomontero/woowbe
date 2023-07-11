@@ -15,12 +15,11 @@ export const useAuthStore = defineStore('auth', {
 
   actions: {
     async login(payload: Object = {}) {
-      console.log(payload);
       try {
-        const response = await apiAuth(payload)
+        const response = await apiAuth(payload);
         this.logged = true;
         this.token = response.token;
-        this.name = response.name;
+        router.push('/');
       } catch (error) {
         console.log(error);
       }

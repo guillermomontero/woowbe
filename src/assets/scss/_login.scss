@@ -71,6 +71,15 @@
     }
   }
 
+  &__message {
+    width: 100%;
+    padding: 1em;
+    margin: 1em 0 0 0;
+    background: #ff8888;
+    color: #fff;
+    border-radius: 5px;
+  }
+
   @media (min-width: 590px) {
     width: 40%;
   }
