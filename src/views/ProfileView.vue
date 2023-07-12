@@ -4,8 +4,11 @@ import { apiUsers } from '../config/api/users';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-
 const user = ref<Object>({});
+
+onMounted(() => {
+  getUser();
+});
 
 const getUser = async() => {
   try {
@@ -14,10 +17,6 @@ const getUser = async() => {
     console.log(err)
   }
 };
-
-onMounted(() => {
-  getUser();
-});
 </script>
 
 <template>

@@ -5,24 +5,16 @@ import router from '../../router';
 interface Card {
   id: number,
   name: string,
-  description: string,
+  minimum_purchase_amount: string,
   square_picture: string,
-  sector: object
+  reward: string
 };
 
 const props = defineProps<{
   item: Card
 }>();
 
-const filterCutText = computed(() => {
-  if (props.item.description.length >= 70) return `${props.item.description.slice(0, 70).trim()}...`;
-  return props.item.description;
-});
-
-const showOffers = () => {
-  router.push(`/offers/${props.item.id}`)
-};
-
+const showOffers = () => { router.push(`/offers/${props.item.id}`) };
 </script>
 
 <template>

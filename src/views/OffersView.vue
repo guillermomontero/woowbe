@@ -1,12 +1,15 @@
 <script lang="ts" setup>
 import { ref, onMounted, computed } from 'vue';
 import { apiOffersList,apiOffersListPagination } from '../config/api/offers';
-import FilterBar from '../components/other/FilterBar.vue';
 import OffersCardComponent from '../components/offers/OffersCardComponent.vue';
 
 const dataOffers = ref<Object>({});
 const offersList = computed(() => dataOffers.value.results);
 const page = ref<number>(1);
+
+onMounted(() => {
+  getOffersList();
+});
 
 const getOffersList = async() => {
   try {
@@ -15,10 +18,6 @@ const getOffersList = async() => {
     console.log(err)
   }
 };
-
-onMounted(() => {
-  getOffersList();
-});
 
 const goToPage = async (pageToGo: number = 1) => {
   try {
@@ -29,14 +28,6 @@ const goToPage = async (pageToGo: number = 1) => {
     console.log(error)
   }
 };
-
-const filterByBusiness = (id: number = 0) => {
-  console.log(id);
-};
-
-const filterByCategories = (id: number = 0) => {
-  console.log(id);
-};
 </script>
 
 <template>
@@ -44,7 +35,6 @@ const filterByCategories = (id: number = 0) => {
     <div class="title-page">
       <h1>Ofertas <span class="title-page__results">({{ dataOffers.count }} resultados)</span></h1>
     </div>
-    <!-- <FilterBar v-if="offersList && offersList.length" :item="dataOffers" @businessSelectedChange="filterByBusiness" @categorySelectedChange="filterByCategories"/> -->
     <section class="home">
       <template v-for="(item, index) in offersList" :key="`${index}_${item.id}`">
         <OffersCardComponent :item="item" />

@@ -12,8 +12,8 @@
 }
 
 body {
-  background: #ffffff;
-  color: #000000;
+  background: $white;
+  color: $black;
 }
 
 .main {
@@ -35,10 +35,10 @@ a {
 }
 
 
+// To organize
 
-//
 .divider {
-  border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid $gray;
   margin: 1em;
 }
 
@@ -59,15 +59,37 @@ a {
   border: none;
   outline: none;
   border-radius: 5px;
-  background: #73dee4;
-  color: #000000;
+  background: $blue-corp;
+  color: $black;
   transition: all ease 0.3s;
 
   &__large {
     padding: 0.5em 1em;
   }
 
-  &:hover {
-    background: #53a7ac;
+  &__medium {
+    padding: 0.2em 0.5em;
   }
+
+  &:hover {
+    background: $blue-corp-dark;
+  }
+}
+
+.row-nowrap-center-start {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.col-wrap-center-center {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.justify-top {
+  justify-content:  flex-start;
 }

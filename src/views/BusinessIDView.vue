@@ -5,8 +5,11 @@ import { useRoute } from 'vue-router';
 import router from '../router';
 
 const route = useRoute();
-
 const business = ref({});
+
+onMounted(() => {
+  getBusinessId();
+});
 
 const getBusinessId = async() => {
   try {
@@ -15,10 +18,6 @@ const getBusinessId = async() => {
     console.log(err)
   }
 };
-
-onMounted(() => {
-  getBusinessId();
-});
 
 const goToBusiness = () => {
   router.push('/');
@@ -49,9 +48,7 @@ const goToBusiness = () => {
       <article class="business-item__description">
         <p>{{ business.description }}</p>
       </article>
-
       <button @click="goToBusiness" class="btn btn__large">Volver</button>
     </section>
-
   </main>
 </template>

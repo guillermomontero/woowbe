@@ -1,61 +1,59 @@
 <script lang="ts" setup>
-  import { ref, watch } from 'vue';
-  import { useAuthStore } from '../stores/auth';
+import { ref, watch } from 'vue';
+import { useAuthStore } from '../stores/auth';
 
-  const store = useAuthStore();
+interface User {
+  email: string,
+  password: string
+}
 
-  interface User {
-    email: string,
-    password: string
+const store = useAuthStore();
+const loginMessage = ref<string>('');
+const user = ref<User>({
+  email: '',
+  password: ''
+});
+
+
+watch(loginMessage, (newQuestion) => {
+  if (newQuestion) {
+    setTimeout(() => {
+      loginMessage.value = '';
+    }, 3000);
+  }
+});
+
+const login = async () => {
+  if (!validateForm()) return;
+
+  const payload = {
+    email: user.value.email,
+    password: user.value.password
+  };
+
+  await store.login(payload);
+};
+
+// Validate form
+const validateForm = () => {
+  if (!user.value.email || !user.value.password) {
+    loginMessage.value = 'Los datos introducidos son incorrectos';
+    return false;
   }
 
-  const user = ref<User>({
-    email: '',
-    password: ''
-  });
+  if (!hasEmailFormat(user.value.email)) {
+    loginMessage.value = 'El email introducido no es correcto';
+    return false;
+  }
 
-  const loginMessage = ref<string>('');
+  return true;
+};
 
-  watch(loginMessage, (newQuestion) => {
-    if (newQuestion) {
-      setTimeout(() => {
-        loginMessage.value = '';
-      }, 3000);
-    }
-  });
+const hasEmailFormat = (searchString: string = '') => {
+  const emailRegExp = { email: /^\w.+@\w+\.[a-z]+$/i };
 
-  const login = async () => {
-    if (!validateForm()) return;
-
-    const payload = {
-      email: user.value.email,
-      password: user.value.password
-    };
-
-    await store.login(payload);
-  };
-
-  // Validate form
-  const validateForm = () => {
-    if (!user.value.email || !user.value.password) {
-      loginMessage.value = 'Los datos introducidos son incorrectos';
-      return false;
-    }
-
-    if (!hasEmailFormat(user.value.email)) {
-      loginMessage.value = 'El email introducido no es correcto';
-      return false;
-    }
-
-    return true;
-  };
-
-  const hasEmailFormat = (searchString: string = '') => {
-    const emailRegExp = { email: /^\w.+@\w+\.[a-z]+$/i };
-
-    return emailRegExp.email.test(searchString);
-  };
-
+  return emailRegExp.email.test(searchString);
+};
 </script>
 
 <template>

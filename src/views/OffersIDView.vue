@@ -5,8 +5,11 @@ import { useRoute } from 'vue-router';
 import router from '../router';
 
 const route = useRoute();
-
 const offers = ref({});
+
+onMounted(() => {
+  getOffersId();
+});
 
 const getOffersId = async() => {
   try {
@@ -16,13 +19,7 @@ const getOffersId = async() => {
   }
 };
 
-onMounted(() => {
-  getOffersId();
-});
-
-const goToOffers = () => {
-  router.push('/offers');
-}
+const goToOffers = () => { router.push('/offers'); }
 </script>
 
 <template>
@@ -44,6 +41,5 @@ const goToOffers = () => {
       </article>
       <button @click="goToOffers" class="btn btn__large">Volver</button>
     </section>
-
   </main>
 </template>

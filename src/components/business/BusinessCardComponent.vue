@@ -19,10 +19,7 @@ const filterCutText = computed(() => {
   return props.item.description;
 });
 
-const showBusiness = () => {
-  router.push(`/business/${props.item.id}`)
-};
-
+const showBusiness = () => { router.push(`/business/${props.item.id}`) };
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 .offers-card {
-  border: 1px solid #e3e3e3;
+  border: 1px solid $gray;
   border-radius: 5px;
   padding: 1em;
 
@@ -49,14 +49,14 @@
     border: none;
     outline: none;
     border-radius: 5px;
-    background: #73dee4;
-    color: #000000;
+    background: $blue-corp;
+    color: $black;
     padding: 0.5em 1em;
     width: 100%;
     transition: all ease 0.3s;
 
     &:hover {
-      background: #53a7ac;
+      background: $blue-corp-dark;
     }
   }
 }
@@ -70,9 +70,11 @@
 
   &__image {
     width: 100%;
+    margin: 0 auto;
+    text-align: center;
     
     img {
-      width: 100%;
+      max-width: 50%;
       height: auto;
     }
   }

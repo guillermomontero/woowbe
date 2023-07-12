@@ -1,5 +1,5 @@
 .business-card {
-  border: 1px solid #e3e3e3;
+  border: 1px solid $gray;
   border-radius: 5px;
   padding: 1em;
 
@@ -49,14 +49,14 @@
     border: none;
     outline: none;
     border-radius: 5px;
-    background: #73dee4;
-    color: #000000;
+    background: $blue-corp;
+    color: $black;
     padding: 0.5em 1em;
     width: 100%;
     transition: all ease 0.3s;
 
     &:hover {
-      background: #53a7ac;
+      background: $blue-corp-dark;
     }
   }
 }
@@ -70,9 +70,11 @@
 
   &__image {
     width: 100%;
+    margin: 0 auto;
+    text-align: center;
     
     img {
-      width: 100%;
+      max-width: 50%;
       height: auto;
     }
   }
@@ -101,18 +103,18 @@
       justify-content: center;
 
       svg {
-        fill: #73dee4;
+        fill: $blue-corp;
       }
 
       a {
         margin: 0 0 0 0.6em;
         cursor: pointer;
-        color: #73dee4;
+        color: $blue-corp;
         display: block;
         transition: all ease 0.3s;
   
         &:hover {
-          color: #53a7ac;
+          color: $blue-corp-dark;
         }
       }
     }
@@ -127,7 +129,7 @@
     &--label {
       padding: 0 12px;
       border-radius: 12px;
-      background: #ffdc42;
+      background: $orange-corp;
       font-size: 0.8rem;
       margin: 0 1em 0 0;
     }

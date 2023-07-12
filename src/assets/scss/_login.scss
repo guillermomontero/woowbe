@@ -1,6 +1,6 @@
 .login {
   width: 100%;
-  background: #f9f9f9;
+  background: $gray-semi-60;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -25,8 +25,8 @@
 
     &--input {
       width: 100%;
-      border: solid 1px #e3e3e3;;
-      background: #ffffff;
+      border: solid 1px $gray;
+      background: $white;
       padding: 1em 2em;
       border-radius: 5px;
       margin: 0 0 1em 0;
@@ -38,14 +38,14 @@
       border: none;
       outline: none;
       border-radius: 5px;
-      background: #73dee4;
-      color: #000000;
+      background: $blue-corp;
+      color: $black;
       padding: 1em 2em;
       width: 100%;
       transition: all ease 0.3s;
 
       &:hover {
-        background: #53a7ac;
+        background: $blue-corp-dark;
       }
     }
   }
@@ -60,14 +60,14 @@
 
     a {
       cursor: pointer;
-      color: #73dee4;
+      color: $blue-corp;
       font-weight: 700;
       display: block;
       font-size: 0.8rem;
       transition: all ease 0.3s;
 
       &:hover {
-        color: #53a7ac;
+        color: $blue-corp-dark;
       }
     }
   }
@@ -76,8 +76,8 @@
     width: 100%;
     padding: 1em;
     margin: 1em 0 0 0;
-    background: #ff8888;
-    color: #fff;
+    background: $red;
+    color: $white;
     border-radius: 5px;
   }
 

@@ -1,12 +1,15 @@
 <script lang="ts" setup>
 import { ref, onMounted, computed } from 'vue';
 import { apiPointsOfSalesList,apiPointsOfSalesListPagination } from '../config/api/points-of-sales';
-// import FilterBar from '../components/business/FilterBar.vue';
 import PointsOfSalesCardComponent from '../components/points-of-sales/PointsOfSalesCardComponent.vue';
 
 const dataPointsOfSales = ref<Object>({});
 const pointsOfSalesList = computed(() => dataPointsOfSales.value.results);
 const page = ref<number>(1);
+
+onMounted(() => {
+  getPointsOfSalesList();
+});
 
 const getPointsOfSalesList = async() => {
   try {
@@ -15,10 +18,6 @@ const getPointsOfSalesList = async() => {
     console.log(err)
   }
 };
-
-onMounted(() => {
-  getPointsOfSalesList();
-});
 
 const goToPage = async (pageToGo: number = 1) => {
   try {
@@ -29,14 +28,6 @@ const goToPage = async (pageToGo: number = 1) => {
     console.log(error)
   }
 };
-
-const filterByBusiness = (id: number = 0) => {
-  console.log(id);
-};
-
-const filterByCategories = (id: number = 0) => {
-  console.log(id);
-};
 </script>
 
 <template>
@@ -44,7 +35,6 @@ const filterByCategories = (id: number = 0) => {
     <div class="title-page">
       <h1>Puntos de venta <span class="title-page__results">({{ dataPointsOfSales.count }} resultados)</span></h1>
     </div>
-    <!-- <FilterBar v-if="pointsOfSalesList && pointsOfSalesList.length" :item="dataPointsOfSales" @businessSelectedChange="filterByBusiness" @categorySelectedChange="filterByCategories"/> -->
     <section class="home">
       <template v-for="(item, index) in pointsOfSalesList" :key="`${index}_${item.id}`">
         <PointsOfSalesCardComponent :item="item" />

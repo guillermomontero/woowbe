@@ -16,20 +16,20 @@
     button {
       svg {
         width: 40px;
-        fill: #f7a649;
+        fill: $orange-corp;
         transition: all ease 0.3s;
 
 
         &.disabled {
-          fill: #e3e3e3;
+          fill: $gray;
 
           &:hover {
-            fill: #e3e3e3;
+            fill: $gray;
           }
         }
 
         &:hover {
-          fill: #e08925;
+          fill: $orange-corp-dark;
         }
       }
       cursor: pointer;
