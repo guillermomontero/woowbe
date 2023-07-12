@@ -72,7 +72,7 @@ const hasEmailFormat = (searchString: string = '') => {
         </div>
       </form>
       <div class="login__links">
-        <a href="#">Olvide mi contraseña</a>
+        <a href="#">Olvidé mi contraseña</a>
         <a href="#">Registrarme</a>
       </div>
     </section>

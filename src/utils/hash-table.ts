@@ -21,9 +21,9 @@ export class HashTable {
     const idx = this._hash(hashKey);
     
     if (this.table[idx]) {
-      for(let i = 0; i < this.table.length; i++) {
+      for(let i = 0; i < this.table[idx].length; i++) {
         // Si encuenta par clave-valor en el array
-        if (this.tabla[idx][i][0] === hashKey) {
+        if (this.table[idx][i][0] === hashKey) {
           this.table[idx][i][1] = value;
           return;
         }

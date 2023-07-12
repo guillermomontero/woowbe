@@ -9,6 +9,6 @@ export const apiPointsOfSalesListPagination = async (page: number = 0) => {
 };
 
 export const apiPointsOfSalesId = async (id: number = 0) => {
-  return await apiCallGET(`/points_of_sales/public/${id}`);
+  return await apiCallGET(`/points_of_sales/public/${id}/`);
   // Params: business, status, radius
 };
